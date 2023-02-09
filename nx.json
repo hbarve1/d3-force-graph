@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "d3-force-graph-test-1",
+  "npmScope": "d3-force-graph",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",

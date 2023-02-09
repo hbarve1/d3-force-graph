@@ -1,12 +1,20 @@
 {
-  "name": "d3-force-graph-test-1",
+  "name": "d3-force-graph",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nx": "nx"
+  },
   "private": true,
   "dependencies": {
+    "3d-force-graph": "^1.71.1",
+    "accessor-fn": "^1.4.1",
     "core-js": "^3.6.5",
+    "kapsule": "^1.14.1",
     "regenerator-runtime": "0.13.7",
+    "three": "^0.149.0",
+    "three-forcegraph": "^1.41.4",
+    "three-render-objects": "^1.28.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
