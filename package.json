@@ -15,6 +15,7 @@
     "three": "^0.149.0",
     "three-forcegraph": "^1.41.4",
     "three-render-objects": "^1.28.1",
+    "three-spritetext": "^1.7.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -25,6 +26,7 @@
     "@nrwl/web": "15.6.3",
     "@nrwl/workspace": "15.6.3",
     "@types/node": "18.7.1",
+    "@types/three": "^0.149.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "@vitest/coverage-c8": "~0.25.8",
