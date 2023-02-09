@@ -1,0 +1,72 @@
+{
+  "name": "curved-links",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/curved-links/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/curved-links"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "curved-links:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "curved-links:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "curved-links:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "curved-links:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "curved-links:build:development"
+        },
+        "production": {
+          "buildTarget": "curved-links:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/curved-links"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/curved-links"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/curved-links/**/*.ts"]
+      }
+    }
+  }
+}
