@@ -1,0 +1,72 @@
+{
+  "name": "fix-dragged-nodes",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/fix-dragged-nodes/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/fix-dragged-nodes"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fix-dragged-nodes:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fix-dragged-nodes:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "fix-dragged-nodes:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fix-dragged-nodes:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fix-dragged-nodes:build:development"
+        },
+        "production": {
+          "buildTarget": "fix-dragged-nodes:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/fix-dragged-nodes"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/fix-dragged-nodes"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/fix-dragged-nodes/**/*.ts"]
+      }
+    }
+  }
+}

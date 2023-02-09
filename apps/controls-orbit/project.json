@@ -1,0 +1,72 @@
+{
+  "name": "controls-orbit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/controls-orbit/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/controls-orbit"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "controls-orbit:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "controls-orbit:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "controls-orbit:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "controls-orbit:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "controls-orbit:build:development"
+        },
+        "production": {
+          "buildTarget": "controls-orbit:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/controls-orbit"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/controls-orbit"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/controls-orbit/**/*.ts"]
+      }
+    }
+  }
+}

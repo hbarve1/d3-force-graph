@@ -1,0 +1,72 @@
+{
+  "name": "expandable-nodes",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/expandable-nodes/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/expandable-nodes"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "expandable-nodes:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "expandable-nodes:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "expandable-nodes:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "expandable-nodes:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "expandable-nodes:build:development"
+        },
+        "production": {
+          "buildTarget": "expandable-nodes:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/expandable-nodes"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/expandable-nodes"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/expandable-nodes/**/*.ts"]
+      }
+    }
+  }
+}

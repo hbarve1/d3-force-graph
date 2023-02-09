@@ -1,0 +1,72 @@
+{
+  "name": "click-to-focus",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/click-to-focus/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/click-to-focus"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "click-to-focus:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "click-to-focus:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "click-to-focus:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "click-to-focus:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "click-to-focus:build:development"
+        },
+        "production": {
+          "buildTarget": "click-to-focus:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/click-to-focus"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/click-to-focus"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/click-to-focus/**/*.ts"]
+      }
+    }
+  }
+}

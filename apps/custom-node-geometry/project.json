@@ -1,0 +1,72 @@
+{
+  "name": "custom-node-geometry",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/custom-node-geometry/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/custom-node-geometry"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "custom-node-geometry:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "custom-node-geometry:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "custom-node-geometry:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "custom-node-geometry:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "custom-node-geometry:build:development"
+        },
+        "production": {
+          "buildTarget": "custom-node-geometry:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/custom-node-geometry"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/custom-node-geometry"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/custom-node-geometry/**/*.ts"]
+      }
+    }
+  }
+}

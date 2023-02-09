@@ -1,0 +1,72 @@
+{
+  "name": "manipulate-link-force",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/manipulate-link-force/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/manipulate-link-force"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "manipulate-link-force:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "manipulate-link-force:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "manipulate-link-force:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "manipulate-link-force:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "manipulate-link-force:build:development"
+        },
+        "production": {
+          "buildTarget": "manipulate-link-force:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/manipulate-link-force"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/manipulate-link-force"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/manipulate-link-force/**/*.ts"]
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "dag-yarn",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dag-yarn/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/dag-yarn"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dag-yarn:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dag-yarn:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "dag-yarn:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dag-yarn:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dag-yarn:build:development"
+        },
+        "production": {
+          "buildTarget": "dag-yarn:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/dag-yarn"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/dag-yarn"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/dag-yarn/**/*.ts"]
+      }
+    }
+  }
+}
