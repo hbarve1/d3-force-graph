@@ -14,8 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    // "esModuleInterop": true,
-    // "resolveJsonModule": true,
     "paths": {
       "@d3-force-graph/datasets": ["libs/datasets/src/index.ts"]
     }
