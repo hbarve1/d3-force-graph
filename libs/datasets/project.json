@@ -1,0 +1,26 @@
+{
+  "name": "datasets",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/datasets/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/datasets",
+        "main": "libs/datasets/src/index.ts",
+        "tsConfig": "libs/datasets/tsconfig.lib.json",
+        "assets": ["libs/datasets/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/datasets/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
